@@ -1,0 +1,126 @@
+:root {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Inter", sans-serif;
+	font-size: 18px;
+	line-height: 1.25;
+}
+.container {
+	margin: 0 auto;
+	max-width: 900px;
+	margin-top: 150px;
+}
+.datacheck__inner {
+	padding: 25px;
+
+	border-radius: 25px;
+	background-color: #f5f5f5;
+}
+.datacheck__title {
+	padding-left: 28px;
+	padding-top: 25px;
+	font-size: 26px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding-right: 25px;
+}
+.datacheck__form {
+	padding-left: 25px;
+	margin-right: 30px;
+	padding-top: 33px;
+	display: flex;
+	gap: 40px;
+	justify-content: space-between;
+}
+.form__input {
+	padding-left: 15px;
+	font-size: 18px;
+	min-width: 450px;
+	min-height: 35px;
+	border-radius: 10px;
+}
+.form__submit {
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 10px;
+	background-color: #4cb050;
+	font-size: 18px;
+	font-weight: 600;
+	min-width: 200px;
+	transition: opacity 0.5s ease-in-out;
+}
+.form__submit:hover {
+	opacity: 0.7;
+}
+.infopanel {
+	padding-top: 10px;
+	display: flex;
+	gap: 35px;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.infopanel__container {
+	cursor: pointer;
+	width: 40%;
+	transition: all 0.5s ease-in-out;
+	padding: 10px;
+}
+.infopanel__subtitle {
+	cursor: pointer;
+	font-size: 18px;
+	font-weight: 600;
+	border-bottom: 2px solid #000;
+}
+.advice__wrapper {
+	padding: 10px;
+	margin: 25px;
+	display: flex;
+	border-radius: 7px;
+	border: 3px solid tomato;
+	min-height: 50px;
+	justify-content: center;
+}
+.advice {
+	font-weight: 300;
+	font-style: italic;
+	padding-left: 10px;
+	padding-top: 10px;
+	font-weight: 200;
+}
+.infopanel__container:hover {
+	border-radius: 10px;
+	border: 2px solid #000;
+}
+.flash.success {
+	font-size: 24px;
+	font-weight: 800;
+	align-self: flex-start;
+	margin-bottom: 15px;
+}
+.flash.error {
+	font-size: 24px;
+	font-weight: 800;
+	align-self: flex-start;
+	margin-bottom: 15px;
+}
+
+.nav a {
+    float: right;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.nav a:hover {
+    background-color: salmon;
+    color: black;
+}
+.nav a.active {
+    background-color: #add8e6;
+    color: darkblue;
+}

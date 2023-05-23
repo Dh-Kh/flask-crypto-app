@@ -1,0 +1,65 @@
+{% extends 'login.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% block head %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<title>{% block title %}{% endblock %} Connection page</title>
+	{% endblock %}
+</head>
+<body>
+{% block main %}
+<div class="container">
+	<main class = "main">
+		<div class="unique-text">
+		Change info
+		</div>
+		<form method="POST" action="{{ url_for("auth.changeprofile") }}">
+			{{ form.csrf_token() }}
+			<div class="form__title-text">
+			Write your username
+			</div>
+    		<p>{{form.username.label}}<br>
+    			{% if form.username.errors %}
+   				{{ form.username(size = 32) }}
+   			<br>
+    		<span class="invalid-feedback">
+    		{% for e in form.username.errors %}
+    			{{ e }}
+    		{% endfor %}
+    		</span>
+   			{% else %}
+    		{{ form.username(size=32) }}<br>
+    		{% endif %}
+    		</p>
+    		<div class="form__title-text">
+    		Write new password
+    		</div>
+    		<p>{{form.password.label}}<br>
+    		{{ form.password(size=32) }}<br>
+    		</p>
+    		<div class="form__title-text">
+    		Confirm security code 
+    		</div>
+    		{{ form.two_factor_auth(size=32) }}<br>
+    		</p>
+    		<p>{{ form.submit(class = "input_b") }}</p>
+		</form>
+	</main>
+</div>
+<br>
+{% block content %}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+{% endblock %}
+</div>
+<div class="nav">
+  <a href="{{ url_for("auth.connection") }}">Return</a>
+  <a href="{{ url_for("auth.register") }}">Create</a>
+</div>
+{% endblock %}
+</body>
+</html>

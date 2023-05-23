@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% block head %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<title>{% block title %}{% endblock %} Wallet panel</title>
+	{% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            setInterval(function() {
+                $.getJSON('/get_my_crypto_prices', function(data) {
+                    $('#crypto_prices').text(data.crypto);
+            });
+        }, 1000);
+        });
+        $(document).ready(function() {
+            setInterval(function() {
+                $.getJSON('/get_stock_prices', function(data) {
+                    $('#stock_prices').text(data.price);
+            });
+        }, 5000);
+        });
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-primary">
+    <form class="form-inline">
+    <a class="navbar-brand" href="{{ url_for("wallet.create_wallet") }}">Create Wallet</a>
+    <a class="navbar-brand" href="{{ url_for("wallet.get_wallet") }}">Show wallet</a>
+    <a class="navbar-brand" href="{{ url_for("wallet.wallet_transactions") }}">Transactions</a>
+    <a class="navbar-brand" href="{{ url_for("wallet.replenishment") }}">Replenishment</a>
+    <a class = "navbar-brand" href="{{ url_for("wallet.get_balance_menu") }}">Insert Tron</a>
+    <a class = "navbar-brand" href="{{ url_for("wallet.get_to_cash") }}">Withdraw money</a>
+    <a class="navbar-brand" href="{{ url_for("auth.logout") }}">Log out</a>
+    </form>
+</nav>
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Volume</th>
+    </tr>
+    <tr>
+        <th>BTC</th>
+        <th><div id="stock_prices"></th>
+        <th>10000</th>
+    </tr>
+    <tr>
+        <th>PYCOIN</th>
+        <th><div id="crypto_prices"></th>
+        <th>0</th>
+    </tr>
+</table>
+<canvas id="myChart"></canvas>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $.getJSON('/chart_data', function(data) {
+      const ctx = document.getElementById('myChart').getContext('2d');
+      const config = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fri.', 'Sat.', 'Sun.'],
+          datasets: [{
+            label: 'Current price',
+            data: data.random_list,
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)',
+              'rgba(75, 192, 192, 0.2)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'New approach of crypto'
+            }
+          }
+        },
+      });
+    });
+});
+
+function updateChartData() {
+    $.ajax({
+        url: '/get_chart_data',  
+        dataType: 'json',
+        success: function(data) {
+            myChart.data.labels.push(new Date().toLocaleTimeString());
+            myChart.data.datasets[0].data.push(data.value);
+            myChart.update();
+        }
+    });
+}
+
+setInterval(updateChartData, 5000);
+
+    </script>
+</body>
+</html>

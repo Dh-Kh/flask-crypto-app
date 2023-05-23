@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% block head %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<title>{% block title %}{% endblock %} Connection page</title>
+	{% endblock %}
+</head>
+<body>
+{% block main %}
+<div class="container">
+	<main class = "main">
+		<div class="unique-text">
+			Login form
+		</div>
+
+		<form method="POST" action="{{ url_for("auth.connection") }}">
+			{{ form.hidden_tag() }}
+			<div class="form__title-text">
+			Write your username
+			</div>
+    		<p>{{form.username.label}}<br>
+    			{% if form.username.errors %}
+   				{{ form.username(size = 32) }}
+   			<br>
+    		<span class="invalid-feedback">
+    		{% for e in form.username.errors %}
+    			{{ e }}
+    		{% endfor %}
+    		</span>
+   			{% else %}
+    		{{ form.username(size=32) }}<br>
+    		{% endif %}
+    		</p>
+    		<div class="form__title-text">
+    		Write your password
+    		</div>
+    		<p>{{form.password.label}}<br>
+    		{{ form.password(size=32) }}<br>
+    		</p>
+			{{ form.remember() }}
+			{{ form.remember.label }}
+    		<p>{{ form.submit(class = "input_b") }}</p>
+		</form>
+
+<h1><a href="{{ url_for("auth.register") }}">Create new account</a><h1>
+<h2><a href="{{ url_for("auth.changeprofile") }}">Forgot password?</a></h2>
+{% block content %}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+{% endblock %}
+</div>
+
+<div class="nav">
+  <a href="{{ url_for("auth.register") }}">Create</a>
+  <a href="{{ url_for("auth.two_factor") }}">Change</a>
+</div>
+
+{% endblock %}
+</body>
+</html> 

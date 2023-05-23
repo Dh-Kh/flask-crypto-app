@@ -1,0 +1,52 @@
+{% extends 'login.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% block head %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<style type="text/css">
+		input[type=submit] {
+			background-color: #4CAF50; /* Green */
+  		border: none;
+  		color: white;
+  		padding: 12px 24px;
+  		text-align: center;
+  		text-decoration: none;
+  		display: inline-block;
+  		font-size: 16px;
+  		border-radius: 5px;
+  		cursor: pointer;
+ 			transition: background-color 0.3s ease;
+		}
+		input:hover[type="submit"] {
+		background-color: #3e8e41;
+    color: black;
+		}
+	</style>
+	<title>{% block title %}{% endblock %} Two factor auth</title>
+	{% endblock %}
+</head>
+<body>
+{% block main %}
+<div class = "container_wallet">
+<div class="content">
+<form method="POST" action="{{ url_for("auth.two_factor") }}">
+		{{ two_factor_form.hidden_tag() }}
+		<div class="form__title-text">
+			Come up with your wallet
+		</div>
+		{{ two_factor_form.email_data(size=32) }}
+		{{ two_factor_form.submit(class = "submit-btn") }}
+</form>
+{% block content %}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+{% endblock %}
+</div>
+</div>
+{% endblock %}
+</body>
+</html>

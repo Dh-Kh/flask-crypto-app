@@ -1,0 +1,218 @@
+a {
+	background-color: white;
+	border: 2px white;
+  	border-radius: 4px;
+}
+
+:root {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+span
+body {
+	position: relative;
+	font-size: 14px;
+	font-family: system-ui;
+	background-color: whitesmoke;
+}
+.content {
+	text-align: center;
+    padding: 15px;
+    margin: 40px;
+    border-radius: 24px;
+    background-color: whitesmoke;
+    width: 60%;
+    position: absolute;
+    padding-bottom: 48px;
+}
+.container_wallet {
+	display: flex;
+    justify-content: center;
+}
+.container {
+	max-width: 720px;
+	margin: 0 auto;
+	border: 2px solid black;
+	border-radius: 15px;
+	margin-top: 150px;
+	padding: 25px;
+}
+
+.form__title-text {
+	font-size: 24px;
+	font-weight: 800;
+	align-self: flex-start;
+	margin-bottom: 15px;
+}
+.form__title-border {
+	font-size: 24px;
+	font-weight: 800;
+	align-self: flex-start;
+	margin-bottom: 15px;
+	border: 2px solid black;
+	color: darkblue;
+}
+
+.form__login-input span {
+	font-size: 18px;
+	margin-right: 15px;
+}
+.form__input-label {
+	width: 225px;
+	height: 35px;
+	margin-bottom: 25px;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.form__password-input span {
+	font-size: 18px;
+	margin-right: 15px;
+}
+.form__btn-submit {
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 800;
+	display: block;
+	width: 300px;
+	height: 45px;
+	margin-left: 30px;
+	border: 2px solid black;
+	background-color: transparent;
+	transition: border 0.3s ease-in-out;
+    margin-bottom: 70px;
+}
+.form__btn-submit:hover {
+	border: 3px solid gray;
+}
+.adv-options, .panel {
+    display: flex;
+    flex-direction: column;
+}
+.adv-options button, .panel button {
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 800;
+	display: block;
+	width: 300px;
+	height: 45px;
+	margin-left: 30px;
+	border: 2px solid black;
+	background-color: transparent;
+	transition: border 0.3s ease-in-out;
+    margin-bottom: 15px;
+}
+.adv-options button:hover,
+.panel button:hover {
+        border: 3px solid gray;
+    
+}
+.unique-text {
+    font-size: 50px;
+    font-weight: 200;
+    position: absolute;
+    transform: translate(400px, 225px)
+}
+.form-contact .invalid {
+	border: 2px solid;
+  	border-radius: 4px;
+  	padding:10px;
+  	box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+.form-contact .invalid-feedback {
+	border: 2px solid;
+  	border-radius: 4px;
+  	padding:10px;
+  	box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+a:link, a:visited {
+	color: black;
+	padding: 8px 15px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	opacity: 0.8;
+}
+input[type=text] {
+	width: 225px;
+	height: 35px;
+	margin-bottom: 25px;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+input[type=password] {
+	width: 225px;
+	height: 35px;
+	margin-bottom: 25px;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+input[type=submit] {
+  	text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 800;
+	display: block;
+	width: 300px;
+	height: 45px;
+	margin-left: 30px;
+	border: 2px solid black;
+	background-color: transparent;
+	transition: border 0.3s ease-in-out;
+    margin-bottom: 70px;
+}
+input:hover[type="submit"] {
+	background-color: salmon;
+    color: black;
+}
+.flash {padding: 10px;
+	height: 30px;
+	width: 200px;
+	margin: auto;
+	text-align: center;
+	font-family: Arial, Helvetica;
+}
+.flash.success {
+	font-size: 24px;
+	font-weight: 800;
+	align-self: flex-start;
+	margin-bottom: 15px;
+}
+.flash.error {
+	font-size: 24px;
+	font-weight: 800;
+	align-self: flex-start;
+	margin-bottom: 15px;
+}
+.nav {
+	position: absolute;
+  	bottom: 8px;
+  	right: 16px;
+  	font-size: 18px;
+    overflow: hidden;
+}
+.nav a {
+    float: right;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.nav a:hover {
+    background-color: salmon;
+    color: black;
+}
+.nav a.active {
+    background-color: #add8e6;
+    color: darkblue;
+}
+
+

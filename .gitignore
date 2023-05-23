@@ -1,0 +1,6 @@
+*.pyc
+*~
+__pycache__
+venv
+.env
+ignore_script.py
