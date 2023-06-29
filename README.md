@@ -4,6 +4,6 @@ The main goal of this project was to create a Flask app that provides users with
 ## Installation
 Download flask-crypto app
 ```
-pip install git+https://github.com/Dh-Kh/flask-crypto-app.git
+git clone https://github.com/Dh-Kh/flask-crypto-app.git
 ```
 P.S. For the app to work properly, you need to set up an .env file and define your own sensitive data, such as email credentials and secret keys.
